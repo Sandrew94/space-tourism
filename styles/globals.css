@@ -1,0 +1,56 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* //1rem = 10px */
+}
+
+@media only screen and (min-width: 20em) {
+  * {
+    font-size: 55%;
+  }
+}
+
+@media only screen and (min-width: 23em) {
+  * {
+    font-size: 58%;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  * {
+    font-size: 62.5%;
+  }
+}
+
+@media only screen and (min-width: 160em) {
+  * {
+    font-size: 68%;
+  }
+}
+
+/* NEXT IMAGE BACKGROUND ANIMATIONS */
+
+img {
+  transition: 1s;
+}

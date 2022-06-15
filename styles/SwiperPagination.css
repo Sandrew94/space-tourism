@@ -1,0 +1,167 @@
+/* MEDIA FOR ALL THE PAGES */
+
+@media only screen and (min-width: 20em) {
+  .swiper {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  .swiper-pagination-position-container {
+    left: 0% !important;
+    top: 38% !important;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  .swiper-pagination-position-container {
+    left: 0% !important;
+    top: 42% !important;
+  }
+
+  .swiper-pagination-position-crew {
+    left: 8% !important;
+    bottom: 20% !important;
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  .swiper-pagination-position-container {
+    top: 7% !important;
+    left: 8% !important;
+  }
+}
+
+@media only screen and (min-width: 160em) {
+  .swiper-pagination-position-container {
+    top: 7% !important;
+    left: 6% !important;
+  }
+}
+
+/* SWIPER DESTIONATION PAGE*/
+
+.swiper-pagination-position-container {
+  top: 7%;
+  left: 18%;
+}
+
+.swiper-pagination-destination {
+  display: initial;
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  letter-spacing: 0.27rem;
+  padding-bottom: 1rem;
+  color: #d0d6f9;
+  cursor: pointer;
+  border-radius: 0;
+  margin: 0 1rem;
+}
+
+.destination-active-class {
+  color: #ffffff !important;
+  border-bottom: 3px solid #fff;
+}
+
+/* SWIPER CREW PAGE*/
+
+.swiper {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.swiper-pagination-position-crew {
+  left: 25%;
+  bottom: 35%;
+}
+
+.swiper-pagination-crew {
+  display: inline-block;
+  background-color: #ffffff;
+  opacity: 0.17;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 3rem;
+}
+
+.crew-active-class {
+  background-color: #ffffff !important;
+  opacity: 1;
+}
+
+/* SWIPER TECH PAGE*/
+
+/* .swiper {
+  height: 70rem;
+} */
+
+.swiper-tech-position-container {
+  display: flex;
+  position: absolute;
+  top: 25rem;
+  justify-content: center;
+}
+
+.tech-active-class {
+  background-color: #ffffff !important;
+  color: #0b0d17 !important;
+  opacity: 1 !important;
+}
+
+.swiper-tech {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  margin-right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  font-family: "Bellefair";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.834rem;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #ffffff;
+  padding: 2rem;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+@media only screen and (min-width: 30em) {
+  .swiper-tech {
+    width: 8rem;
+    height: 8rem;
+    font-size: 3.2rem;
+    line-height: 3.7rem;
+  }
+}
+
+@media only screen and (max-width: 30em) {
+  .swiper-vertical {
+    flex-direction: row !important;
+  }
+}
+
+.swiper-pagination-vertical {
+  left: 5% !important;
+  top: 25% !important;
+}
+
+@media only screen and (min-width: 2560px) {
+  .swiper-pagination-vertical {
+    left: 5% !important;
+    top: 35% !important;
+  }
+}
+
+.mySwiper {
+  height: 70vh;
+}
