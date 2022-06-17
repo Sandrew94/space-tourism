@@ -29,7 +29,6 @@ export const AuthContextProvider = ({ children }: Props) => {
       await signInAnonymously(auth)
         .then(() => {
           // Signed in..
-          console.log("anonymous sign in");
 
           onAuthStateChanged(auth, async (user) => {
             if (user) {
@@ -44,28 +43,27 @@ export const AuthContextProvider = ({ children }: Props) => {
                 true
               )
                 .then(() => {
-                  console.log("fullfilled");
+                  //Fullfilled
                 })
-                .catch((error) => {
-                  console.log(error);
+                .catch((error: Error) => {
+                  throw new Error(error.message);
                 });
 
               setUser(user);
             } else {
               // User is signed out
               setUser(null);
-              console.log("signout");
             }
           });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
           // ...
           setError(
             `${error.message} & ${error.code} or See the console for more information.`
           );
+          throw new Error(`${errorMessage} & ${errorCode}`);
         });
     };
 

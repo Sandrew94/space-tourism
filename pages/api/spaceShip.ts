@@ -13,8 +13,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   } catch (e: unknown) {
     const u = e as { message: string };
 
-    console.log(u.message);
-
     res.status(500).json({ error: `failed to load data, ${u.message}` });
   }
 }
