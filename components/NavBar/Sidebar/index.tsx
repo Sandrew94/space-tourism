@@ -35,7 +35,11 @@ export default function Sidebar() {
 
   return (
     <ContainerSidebar>
-      <Image src={openSidebar} onClick={handlerActiveSidebar} />
+      <Image
+        src={openSidebar}
+        onClick={handlerActiveSidebar}
+        alt="Open Sidebar"
+      />
       {toggle && (
         <AnimatePresence>
           <MenuSidebar
@@ -46,7 +50,11 @@ export default function Sidebar() {
             animate="visible"
           >
             <CrossIcon>
-              <Image src={cross} onClick={handlerActiveSidebar} />
+              <Image
+                src={cross}
+                onClick={handlerActiveSidebar}
+                alt="Close Sidebar"
+              />
             </CrossIcon>
             <MenuListUl>
               {menuNavBar.map((destinations, idx) => {

@@ -21,7 +21,7 @@ class MyDocument extends Document {
           <meta name="googlebot" content="notranslate" />
           <meta property="og:image" content="../public/assets/logo/logo.svg" />
           <meta
-            property="og:description"
+            property="description"
             content="The spaceship and the crew of the next lands"
           />
           <link
