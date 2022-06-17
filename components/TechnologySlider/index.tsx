@@ -35,6 +35,7 @@ export default function TechnologySlider({
               width={view.width}
               height={view.height}
               layout="responsive"
+              alt="rocket image background"
             />
           </ContainerTechImage>
           <TextWrapper>

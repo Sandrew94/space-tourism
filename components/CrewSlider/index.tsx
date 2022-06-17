@@ -30,7 +30,6 @@ export default function CrewSlider({
     <Wrapper>
       {!loading && (
         <>
-          {" "}
           <TextContainer>
             <RoleCrew>{role}</RoleCrew>
             <NameCrew>{name}</NameCrew>

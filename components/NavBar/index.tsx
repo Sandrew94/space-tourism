@@ -24,7 +24,7 @@ export default function NavBar() {
   return (
     <Container>
       <Logo>
-        <Image src={LogoImage} width="48px" height="48px" />
+        <Image src={LogoImage} width="48px" height="48px" alt="Logo" />
       </Logo>
       <LineDivider></LineDivider>
       <Sidebar /> {/* ONLY MOBILE L */}

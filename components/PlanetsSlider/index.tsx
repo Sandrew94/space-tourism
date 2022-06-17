@@ -43,6 +43,7 @@ export default function PlanetSlider({
               layout="fixed"
               width={`${isTablet ? "445px" : "300px"}`}
               height={`${isTablet ? "445px" : "300px"}`}
+              alt="tablet Image background"
             />
           )}
           {isMobile && (
@@ -51,6 +52,7 @@ export default function PlanetSlider({
               layout="fixed"
               width="170px"
               height="170px"
+              alt="mobile Image background"
             />
           )}
         </>
@@ -63,7 +65,6 @@ export default function PlanetSlider({
           <PlanetTitle>{planetTitle}</PlanetTitle>
           <PlanetDescription>{planetDescription}</PlanetDescription>
           <Divider></Divider>
-
           <DistanceTimeContainer>
             <Wrapper>
               <TitleStyle>AVG. DISTANCE </TitleStyle>

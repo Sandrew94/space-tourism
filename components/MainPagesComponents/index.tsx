@@ -17,7 +17,12 @@ export default function MainPagesComponents({
   return (
     <Wrapper>
       <BackgroundContainer>
-        <Image src={backgroundImage} layout="fill" placeholder="blur" />
+        <Image
+          src={backgroundImage}
+          layout="fill"
+          placeholder="blur"
+          alt="background"
+        />
       </BackgroundContainer>
       <TitleMain title={title} />
       {children}

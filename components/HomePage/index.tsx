@@ -71,9 +71,19 @@ export default function HomePage({}: Props) {
   return (
     <>
       {isLaptop ? (
-        <Image src={BackgroundDestkop} layout="fill" objectFit="cover" />
+        <Image
+          src={BackgroundDestkop}
+          layout="fill"
+          objectFit="cover"
+          alt="Background Destkop"
+        />
       ) : (
-        <Image src={BackgroundTablet} layout="fill" objectFit="cover" />
+        <Image
+          src={BackgroundTablet}
+          layout="fill"
+          objectFit="cover"
+          alt="Background Tablet"
+        />
       )}
       <HomeContainer>
         <ContainerFooterHome>
