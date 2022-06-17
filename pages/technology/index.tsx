@@ -53,7 +53,7 @@ export default function Technology({ data }: Props) {
   }, [user]);
 
   return (
-    <Layout>
+    <Layout titleMeta="Technology">
       <MainPagesComponents
         backgroundImage={spaceLaunchBackground}
         title={"03 SPACE LAUNCH 101"}

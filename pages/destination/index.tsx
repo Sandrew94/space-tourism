@@ -39,7 +39,7 @@ export default function Destination() {
   }, [user]);
 
   return (
-    <Layout>
+    <Layout titleMeta="Destinations">
       <MainPagesComponents
         backgroundImage={destinationImage}
         title="01 PICK YOUR DESTINATION"

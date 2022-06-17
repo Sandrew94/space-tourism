@@ -41,7 +41,7 @@ export default function CrewPage({}: Props) {
   }, [user]);
 
   return (
-    <Layout>
+    <Layout titleMeta="Crew">
       <MainPagesComponents
         backgroundImage={crewImage}
         title={"02 MEET YOUR CREW"}

@@ -18,6 +18,12 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta name="googlebot" content="notranslate" />
+          <meta property="og:image" content="../public/assets/logo/logo.svg" />
+          <meta
+            property="og:description"
+            content="The spaceship and the crew of the next lands"
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap"
             rel="stylesheet"
