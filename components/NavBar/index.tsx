@@ -27,7 +27,8 @@ export default function NavBar() {
         <Image src={LogoImage} width="48px" height="48px" alt="Logo" />
       </Logo>
       <LineDivider></LineDivider>
-      <Sidebar /> {/* ONLY MOBILE L */}
+      <Sidebar />
+      {/* ONLY MOBILE L */}
       <MenuContainer>
         {/* ONLY TABLET OR MORE HUGE DEVICES */}
         <MenuListUl>

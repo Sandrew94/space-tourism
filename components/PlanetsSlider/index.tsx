@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import {
   DescriptionInfo,
   DistanceTimeContainer,
@@ -15,7 +15,7 @@ import { useMediaQuery } from "react-responsive";
 import defaultMoon from "/public/assets/destination/image-moon.png";
 
 type Props = {
-  planetImage: string | any;
+  planetImage: string | StaticImageData;
   planetTitle: string;
   planetDescription: string;
   distance: string;

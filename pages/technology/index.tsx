@@ -43,7 +43,7 @@ export default function Technology({ data }: Props) {
         const data = await fetchServerlessPlanets("technology", token);
 
         setColor("#70bb24");
-        setTechnologyData(data.planetData);
+        setTechnologyData(data);
         setLoading(false);
       }
     };

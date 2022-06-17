@@ -31,7 +31,7 @@ export default function CrewPage({}: Props) {
         const data = await fetchServerlessPlanets("crew", token);
 
         setColor("#70bb24");
-        setCrewData(data.planetData);
+        setCrewData(data);
         setLoading(false);
       }
     };

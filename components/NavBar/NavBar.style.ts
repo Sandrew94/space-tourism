@@ -123,14 +123,10 @@ export const LineDivider = styled.div`
 
 export const Logo = styled.div`
   display: flex;
-  justify-content: center;
   flex-grow: 1;
-  width: 10%;
-  @media ${device.mobileS} {
-    width: 50%;
-    justify-content: flex-start;
-    padding-left: 10%;
-  }
+  width: 50%;
+  justify-content: flex-start;
+  padding-left: 10%;
   @media ${device.tablet} {
     width: 10%;
     justify-content: center;

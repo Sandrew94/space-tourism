@@ -1,3 +1,4 @@
+import { DataFetchType } from "types/types";
 import axios from "axios";
 
 export async function fetchServerlessPlanets(
@@ -7,7 +8,7 @@ export async function fetchServerlessPlanets(
   const url = `/api/spaceShip?query=${query}&accessToken=${accessToken}`;
 
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get<DataFetchType>(url);
 
     if (!data) {
       throw new Error("SOMETHING WHEN WRONG");

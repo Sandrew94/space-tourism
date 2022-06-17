@@ -1,10 +1,10 @@
 import React from "react";
-import { onAuthStateChanged, signInAnonymously } from "firebase/auth";
+import { onAuthStateChanged, signInAnonymously, User } from "firebase/auth";
 import { auth, db } from "firebaseConfig/clientApp";
 import { ref, set } from "firebase/database";
 
 export const AuthContext = React.createContext<{
-  user: any | null;
+  user: User | null;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   error: string;
@@ -20,7 +20,7 @@ type Props = {
 };
 
 export const AuthContextProvider = ({ children }: Props) => {
-  const [user, setUser] = React.useState<any>(null);
+  const [user, setUser] = React.useState<User | null>(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState("");
 

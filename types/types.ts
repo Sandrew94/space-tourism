@@ -28,3 +28,9 @@ export type RocketType = {
   images: RocketImage;
   description: string;
 } & [];
+
+export type DataFetchType =
+  | RocketType
+  | CrewType
+  | PlanetInfo
+  | { message: string };

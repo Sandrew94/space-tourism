@@ -4,12 +4,12 @@ import { fetchPlanetsInfo } from "utils/fetchApi";
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
     const { query, accessToken } = req.query;
-    const planetData: any = await fetchPlanetsInfo(
+    const planetData = await fetchPlanetsInfo(
       query as string,
       accessToken as string
     );
 
-    res.status(200).json({ planetData });
+    res.status(200).json(planetData);
   } catch (e: unknown) {
     const u = e as { message: string };
 

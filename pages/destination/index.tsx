@@ -27,7 +27,7 @@ export default function Destination() {
         const data = await fetchServerlessPlanets("destinations", token);
 
         setColor("#70bb24");
-        setPlanetData(data.planetData);
+        setPlanetData(data);
         setLoading(false);
       }
     };
