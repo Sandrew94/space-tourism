@@ -19,10 +19,12 @@ export default function Destination() {
   const [color, setColor] = React.useState("#ffffff");
   const { user, loading, setLoading, error } = React.useContext(AuthContext);
 
+  console.log(user);
+
   React.useEffect(() => {
     const dataFetching = async () => {
       if (user) {
-        const token = await user.getIdToken();
+        const token: string = await user.getIdToken();
 
         const data = await fetchServerlessPlanets("destinations", token);
 
