@@ -39,7 +39,7 @@ export const SliderWrapper = styled.div`
     align-items: center;
   }
   @media ${device.tablet} {
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,6 +83,7 @@ export const PlanetDescription = styled.p`
     line-height: 3.2rem;
     text-align: center;
     width: 80%;
+    padding-bottom: 5rem;
   }
 
   @media ${device.laptop} {
@@ -92,15 +93,14 @@ export const PlanetDescription = styled.p`
 
 export const DistanceTimeContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   width: 80%;
-  @media ${device.mobileS} {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+
   @media ${device.tablet} {
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   @media ${device.laptop} {

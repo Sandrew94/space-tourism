@@ -7,9 +7,11 @@ export const TitleContainer = styled.div`
   padding: 5%;
   align-items: center;
   justify-content: center;
+  padding: 0;
 
-  @media ${device.mobileS} {
-    padding: 0;
+  @media ${device.tablet} {
+    padding: 3rem;
+    justify-content: left;
   }
 
   @media ${device.desktop} {

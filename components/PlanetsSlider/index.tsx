@@ -41,8 +41,8 @@ export default function PlanetSlider({
             <Image
               src={planetImage}
               layout="fixed"
-              width={`${isTablet ? "445px" : "300px"}`}
-              height={`${isTablet ? "445px" : "300px"}`}
+              width={"300px"}
+              height={"300px"}
               alt="tablet Image background"
             />
           )}

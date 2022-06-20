@@ -1,11 +1,6 @@
 /* MEDIA FOR ALL THE PAGES */
 
 @media only screen and (min-width: 20em) {
-  .swiper {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-  }
-
   .swiper-pagination-position-container {
     left: 0% !important;
     top: 38% !important;
@@ -70,6 +65,8 @@
 .swiper {
   margin-right: 0 !important;
   margin-left: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
 
 .swiper-pagination-position-crew {
