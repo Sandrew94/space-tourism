@@ -6,9 +6,9 @@ export const Wrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
-  /* @media ${device.tablet} {
+  @media ${device.laptop} {
     flex-direction: row;
-  } */
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -27,6 +27,12 @@ export const ImageContainer = styled.div`
     left: 25%;
     justify-content: center;
   }
+
+  @media ${device.laptop} {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -42,6 +48,11 @@ export const TextContainer = styled.div`
     width: 100%;
     position: relative;
     top: 0;
+  }
+
+  @media ${device.laptop} {
+    width: 50%;
+    justify-content: center;
   }
 `;
 
@@ -65,6 +76,12 @@ export const RoleCrew = styled.h1`
     margin-top: 0.77em;
     margin-bottom: 0.77em;
   }
+
+  @media ${device.laptop} {
+    text-align: justify;
+    width: 100%;
+    padding-left: 10%;
+  }
 `;
 
 export const NameCrew = styled.h1`
@@ -78,6 +95,11 @@ export const NameCrew = styled.h1`
   @media ${device.tablet} {
     font-size: 5.6rem;
     line-height: 6.4rem;
+  }
+  @media ${device.laptop} {
+    text-align: justify;
+    width: 100%;
+    padding-left: 10%;
   }
 `;
 
@@ -95,6 +117,9 @@ export const DescriptionCrew = styled.h2`
     line-height: 3.2rem;
     width: 80%;
     text-align: center;
+  }
+  @media ${device.laptop} {
+    text-align: justify;
   }
 `;
 
