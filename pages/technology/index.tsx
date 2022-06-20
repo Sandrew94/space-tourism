@@ -16,12 +16,9 @@ import { fetchServerlessPlanets } from "utils/fetchServerless";
 import { ContainerSpinner } from "@/components/PlanetsSlider/PlanetsSlider.style";
 import { ClipLoader } from "react-spinners";
 
-export type Props = {
-  data: RocketType;
-};
-
-export default function Technology({ data }: Props) {
-  const isMobile = useMediaQuery({ query: "(max-width: 30em)" });
+export default function Technology() {
+  const isMobile = useMediaQuery({ query: "(min-width: 10em)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 31em)" });
   const [mobileView, setMobileView] = React.useState(false);
   const isMounted = useIsMounted();
 
@@ -97,6 +94,7 @@ export default function Technology({ data }: Props) {
               width: mobileView ? "375px" : "515px",
               height: mobileView ? "170px" : "527px",
             };
+
             return (
               <SwiperSlide key={uuidv4()}>
                 <TechnologySlider

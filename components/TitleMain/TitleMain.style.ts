@@ -56,7 +56,6 @@ export const NumberPageStyle = styled.h1`
   opacity: 0.25;
 
   @media ${device.tablet} {
-    padding: 0 4rem 0 4rem;
     font-style: normal;
     font-weight: 700;
     font-size: 2.8rem;

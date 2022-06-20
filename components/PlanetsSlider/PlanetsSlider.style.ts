@@ -153,4 +153,9 @@ export const ContainerSpinner = styled.div`
   position: absolute;
   top: 20%;
   left: 25vw;
+
+  @media ${device.tablet} {
+    left: 40vw;
+    top: 30%;
+  }
 `;

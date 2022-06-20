@@ -5,9 +5,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media ${device.tablet} {
-    display: flex;
-    flex-direction: row;
+  @media ${device.desktop} {
+    /* flex-direction: row; */
   }
 `;
 
@@ -24,9 +23,7 @@ export const TextWrapper = styled.div`
   padding-top: 10rem;
 
   @media ${device.tablet} {
-    width: 50%;
-    margin-right: 5rem;
-    padding-top: 0rem;
+    padding-top: 15rem;
   }
   @media ${device.desktop} {
     width: 50%;
@@ -51,6 +48,7 @@ export const Text1 = styled.p`
     font-size: 1.6rem;
     line-height: 1.9rem;
     letter-spacing: 0.27rem;
+    margin-bottom: -2rem;
   }
 `;
 export const Text2 = styled.p`
@@ -73,8 +71,6 @@ export const Text3 = styled.p`
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 2.5rem;
-  /* or 178% */
-
   color: #d0d6f9;
   width: 90%;
   text-align: center;
@@ -82,5 +78,6 @@ export const Text3 = styled.p`
   @media ${device.tablet} {
     font-size: 2rem;
     line-height: 3.2rem;
+    width: 75%;
   }
 `;

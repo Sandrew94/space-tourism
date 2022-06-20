@@ -38,6 +38,7 @@ export default function TechnologySlider({
               alt="rocket image background"
             />
           </ContainerTechImage>
+
           <TextWrapper>
             <Text1>THE TERMINOLOGY…</Text1>
             <Text2>{title}</Text2>
