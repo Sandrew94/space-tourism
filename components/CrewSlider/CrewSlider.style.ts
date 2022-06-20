@@ -6,15 +6,15 @@ export const Wrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
-  @media ${device.tablet} {
+  /* @media ${device.tablet} {
     flex-direction: row;
-  }
+  } */
 `;
 
 export const ImageContainer = styled.div`
+  display: flex;
   width: 50%;
   flex-direction: column;
-
   //
   position: absolute;
   top: 2rem;
@@ -23,8 +23,9 @@ export const ImageContainer = styled.div`
   @media ${device.tablet} {
     flex-direction: row;
     position: relative;
-    top: 0;
-    left: 0;
+    top: 10rem;
+    left: 25%;
+    justify-content: center;
   }
 `;
 
@@ -38,10 +39,8 @@ export const TextContainer = styled.div`
   //
   position: absolute;
   @media ${device.tablet} {
-    display: inline-block;
-    width: 50%;
+    width: 100%;
     position: relative;
-    padding-left: 5%;
     top: 0;
   }
 `;
@@ -94,8 +93,8 @@ export const DescriptionCrew = styled.h2`
   @media ${device.tablet} {
     font-size: 1.8rem;
     line-height: 3.2rem;
-    width: 65%;
-    text-align: justify;
+    width: 80%;
+    text-align: center;
   }
 `;
 
