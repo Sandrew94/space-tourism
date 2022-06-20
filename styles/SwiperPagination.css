@@ -25,8 +25,8 @@
 
 @media only screen and (min-width: 64em) {
   .swiper-pagination-position-container {
-    top: 7% !important;
-    left: 8% !important;
+    top: 10% !important;
+    left: 15% !important;
   }
 }
 

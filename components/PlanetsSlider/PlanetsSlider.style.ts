@@ -24,7 +24,7 @@ export const PlanetsContainer = styled.div`
 
   @media ${device.laptop} {
     flex-direction: row;
-    padding-top: 5%;
+    height: 60vh;
   }
 `;
 
@@ -46,8 +46,9 @@ export const SliderWrapper = styled.div`
   }
 
   @media ${device.laptop} {
-    width: 50%;
-    display: block;
+    width: 40%;
+    display: inline-block;
+    padding-top: 10%;
   }
 `;
 

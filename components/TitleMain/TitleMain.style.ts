@@ -14,6 +14,10 @@ export const TitleContainer = styled.div`
     justify-content: left;
   }
 
+  @media ${device.laptop} {
+    padding: 3% 6% 1% 6%;
+  }
+
   @media ${device.desktop} {
     padding: 1% 9% 1% 9%;
   }

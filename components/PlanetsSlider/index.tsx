@@ -31,29 +31,49 @@ export default function PlanetSlider({
   time,
   loading,
 }: Props) {
-  const isTablet = useMediaQuery({ query: "(min-width: 31em)" });
-  const isMobile = useMediaQuery({ query: "(max-width: 30em)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 31em)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 52em)" });
+  const isDestkop = useMediaQuery({ query: "(min-width: 64em)" });
   return (
     <PlanetsContainer>
       {!loading ? (
         <>
-          {isTablet && (
-            <Image
-              src={planetImage}
-              layout="fixed"
-              width={"300px"}
-              height={"300px"}
-              alt="tablet Image background"
-            />
-          )}
-          {isMobile && (
+          {isMobile ? (
             <Image
               src={planetImage}
               layout="fixed"
               width="170px"
               height="170px"
-              alt="mobile Image background"
+              alt="Mobile Image background"
             />
+          ) : isTablet ? (
+            <Image
+              src={planetImage}
+              layout="fixed"
+              width="300px"
+              height="300px"
+              alt="Tablet Image background"
+            />
+          ) : (
+            ""
+          )}
+          {isDestkop && (
+            <div
+              style={{
+                width: "50%",
+                height: "60%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                src={planetImage}
+                layout="fixed"
+                width="445px"
+                height="445px"
+                alt="Destkop Image background"
+              />
+            </div>
           )}
         </>
       ) : (
