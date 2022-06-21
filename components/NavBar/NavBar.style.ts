@@ -76,7 +76,7 @@ export const MenuListLi = styled.li`
 `;
 
 interface ActiveProps {
-  readonly active: boolean;
+  active?: boolean;
 }
 
 export const LinkStyle = styled.a<ActiveProps>`
