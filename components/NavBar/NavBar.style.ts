@@ -75,10 +75,14 @@ export const MenuListLi = styled.li`
   }
 `;
 
-export const LinkStyle = styled.a`
+interface ActiveProps {
+  readonly active: boolean;
+}
+
+export const LinkStyle = styled.a<ActiveProps>`
   font-size: inherit;
   padding-bottom: 3.5rem;
-
+  border-bottom: ${(props) => (props.active ? "4px solid #fff" : "")};
   ${MenuListLi}:hover & {
     border-bottom: 4px solid #fff;
     opacity: 0.5;
