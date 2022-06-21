@@ -5,13 +5,19 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media ${device.desktop} {
-    /* flex-direction: row; */
+  @media ${device.laptop} {
+    flex-direction: row;
   }
 `;
 
 export const ContainerTechImage = styled.div`
   margin-top: 3rem;
+
+  @media ${device.laptop} {
+    width: 35%;
+    position: absolute;
+    right: 0;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -25,9 +31,12 @@ export const TextWrapper = styled.div`
   @media ${device.tablet} {
     padding-top: 15rem;
   }
-  @media ${device.desktop} {
+  @media ${device.laptop} {
     width: 50%;
-    padding-top: 5rem;
+    padding-top: 9%;
+    margin-left: 25%;
+    align-items: start;
+    justify-content: flex-start;
   }
 `;
 
@@ -40,7 +49,6 @@ export const Text1 = styled.p`
   font-size: 1.4rem;
   line-height: 1.68rem;
   letter-spacing: 0.236rem;
-
   color: #d0d6f9;
   margin-bottom: -4rem;
   padding-bottom: 5rem;
@@ -49,6 +57,10 @@ export const Text1 = styled.p`
     line-height: 1.9rem;
     letter-spacing: 0.27rem;
     margin-bottom: -2rem;
+  }
+
+  @media ${device.laptop} {
+    margin-bottom: -4rem;
   }
 `;
 export const Text2 = styled.p`
@@ -62,6 +74,11 @@ export const Text2 = styled.p`
 
   @media ${device.tablet} {
     font-size: 5.6rem;
+    line-height: 6.4rem;
+  }
+
+  @media ${device.laptop} {
+    font-size: 6rem;
     line-height: 6.4rem;
   }
 `;
@@ -79,5 +96,11 @@ export const Text3 = styled.p`
     font-size: 2rem;
     line-height: 3.2rem;
     width: 75%;
+  }
+  @media ${device.laptop} {
+    font-size: 2.3rem;
+    line-height: 3.8rem;
+    text-align: left;
+    width: 60%;
   }
 `;

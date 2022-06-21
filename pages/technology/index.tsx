@@ -17,20 +17,20 @@ import { ContainerSpinner } from "@/components/PlanetsSlider/PlanetsSlider.style
 import { ClipLoader } from "react-spinners";
 
 export default function Technology() {
-  const isMobile = useMediaQuery({ query: "(min-width: 10em)" });
-  const isTablet = useMediaQuery({ query: "(min-width: 31em)" });
+  const isTabletAndMobile = useMediaQuery({ query: "(max-width: 63em)" });
+  const isLaptop = useMediaQuery({ query: "(min-width: 64em)" });
+
   const [mobileView, setMobileView] = React.useState(false);
   const isMounted = useIsMounted();
-
   const [technologyData, setTechnologyData] = React.useState<any>([{}]);
   const [color, setColor] = React.useState("#ffffff");
   const { user, loading, setLoading, error } = React.useContext(AuthContext);
 
   React.useEffect(() => {
     if (isMounted()) {
-      setMobileView(isMobile);
+      setMobileView(isTabletAndMobile);
     }
-  }, [isMounted, isMobile]);
+  }, [isMounted, isTabletAndMobile]);
 
   React.useEffect(() => {
     const dataFetching = async () => {
@@ -56,7 +56,6 @@ export default function Technology() {
         title={"03 SPACE LAUNCH 101"}
       >
         <Swiper
-          // direction={"vertical"}
           modules={[Pagination, Autoplay]}
           spaceBetween={0}
           slidesPerView={"auto"}
@@ -94,12 +93,13 @@ export default function Technology() {
               width: mobileView ? "375px" : "515px",
               height: mobileView ? "170px" : "527px",
             };
-
             return (
               <SwiperSlide key={uuidv4()}>
                 <TechnologySlider
                   view={viewImage}
-                  image={mobileView ? landscapeImage : portraitImage}
+                  mobileView={mobileView}
+                  isLaptop={isLaptop}
+                  image={isTabletAndMobile ? landscapeImage : portraitImage}
                   title={rocket.name?.toUpperCase()}
                   description={rocket.description}
                   loading={loading}

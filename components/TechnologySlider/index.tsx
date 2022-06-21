@@ -16,6 +16,8 @@ type Props = {
   image: string | StaticImageData;
   view: { [key: string]: string };
   loading: boolean;
+  mobileView: boolean;
+  isLaptop: boolean;
 };
 
 export default function TechnologySlider({
@@ -24,19 +26,32 @@ export default function TechnologySlider({
   image = defaultTech,
   view,
   loading,
+  mobileView,
+  isLaptop,
 }: Props) {
   return (
     <Wrapper>
       {!loading && (
         <>
           <ContainerTechImage>
-            <Image
-              src={image}
-              width={view.width}
-              height={view.height}
-              layout="responsive"
-              alt="rocket image background"
-            />
+            {mobileView && (
+              <Image
+                src={image}
+                width={view.width}
+                height={view.height}
+                layout="responsive"
+                alt="rocket image background"
+              />
+            )}
+            {isLaptop && (
+              <Image
+                src={image}
+                width={view.width}
+                height={view.height}
+                layout="fixed"
+                alt="rocket image background"
+              />
+            )}
           </ContainerTechImage>
 
           <TextWrapper>

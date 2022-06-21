@@ -33,6 +33,12 @@
     left: 3% !important;
     top: 80% !important;
   }
+
+  .swiper-tech-position-container {
+    flex-direction: column !important;
+    top: -25% !important;
+    left: 7% !important;
+  }
 }
 
 @media only screen and (min-width: 160em) {
@@ -100,10 +106,6 @@
 }
 
 /* SWIPER TECH PAGE*/
-
-/* .swiper {
-  height: 70rem;
-} */
 
 .swiper-tech-position-container {
   display: flex;
