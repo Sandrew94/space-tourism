@@ -19,16 +19,16 @@ export default function Layout({ children, titleMeta }: Props) {
         <title>{titleMeta}</title>
       </Head>
       <NavBar />
-      <motion.main
+      {/* <motion.main
         key={uuidv4()}
         variants={variants}
         initial="hidden"
         animate="enter"
         exit="exit"
         transition={{ type: "linear" }}
-      >
-        {children}
-      </motion.main>
+      > */}
+      {children}
+      {/* </motion.main> */}
     </>
   );
 }

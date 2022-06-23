@@ -15,13 +15,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no"
         />
       </Head>
-      <AnimatePresence
+      {/* <AnimatePresence
         exitBeforeEnter
         initial={false}
         onExitComplete={() => window.scrollTo(0, 0)}
-      >
-        <Component {...pageProps} />
-      </AnimatePresence>
+      > */}
+      <Component {...pageProps} />
+      {/* </AnimatePresence> */}
     </AuthContextProvider>
   );
 }
