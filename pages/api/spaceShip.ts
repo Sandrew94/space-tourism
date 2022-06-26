@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
+import { DataFetchType } from "types/types";
 import { fetchPlanetsInfo } from "utils/fetchApi";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
@@ -13,6 +14,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   } catch (e: unknown) {
     const u = e as { message: string };
 
-    res.status(500).json({ error: `failed to load data, ${u.message}` });
+    res.status(500).json({ error: `Failed to load data, ${u.message}` });
   }
 }

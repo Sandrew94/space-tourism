@@ -10,31 +10,26 @@ import PlanetSlider from "@/components/PlanetsSlider";
 import Layout from "@/components/Layout";
 import React from "react";
 import { AuthContext } from "context/AuthContext";
-import { fetchServerlessPlanets } from "utils/fetchServerless";
 import ClipLoader from "react-spinners/ClipLoader";
 import { ContainerSpinner } from "@/components/PlanetsSlider/PlanetsSlider.style";
+import { usePlanets } from "hooks/usePlanets";
 
 export default function Destination() {
-  const [planetData, setPlanetData] = React.useState<any>([{}]);
-  const [color, setColor] = React.useState("#ffffff");
-  const { user, loading, setLoading, error } = React.useContext(AuthContext);
+  const { tokenId } = React.useContext(AuthContext);
+
+  const {
+    infoPlanet,
+    initFetchPlanets,
+    isFetchPlanetStatusPending,
+    isFetchPlanetStatusError,
+    isFetchPlanetStatusSuccess,
+  } = usePlanets("destinations", tokenId);
 
   React.useEffect(() => {
-    const dataFetching = async () => {
-      if (user) {
-        const token: string = await user.getIdToken();
+    if (!tokenId) return;
 
-        const data = await fetchServerlessPlanets("destinations", token);
-
-        setColor("#70bb24");
-        setPlanetData(data);
-        setLoading(false);
-      }
-    };
-
-    setLoading(true);
-    dataFetching();
-  }, [user]);
+    initFetchPlanets();
+  }, [tokenId]);
 
   return (
     <Layout titleMeta="Destinations">
@@ -61,35 +56,42 @@ export default function Destination() {
             renderBullet: (index, className) => {
               const planets = ["MOON", "MARS", "EUROPA", "TITAN"];
               return `
-          <div class='${className}'>${planets[index]}</div>
+                <div class='${className}'>${planets[index]}</div>
           `;
             },
           }}
           className="mySwiper"
         >
-          {error && <p>{error}</p>}
-
-          {loading && (
-            <ContainerSpinner>
-              <ClipLoader size={200} loading={loading} color={color} />
-            </ContainerSpinner>
+          {isFetchPlanetStatusError && (
+            <p className="error">
+              There was a problem to load the page, try again later
+            </p>
           )}
 
-          {planetData.map((planet: PlanetInfo) => {
-            const imageRoot = planet.images?.png?.slice(1);
-            return (
-              <SwiperSlide key={uuidv4()}>
-                <PlanetSlider
-                  planetImage={imageRoot}
-                  planetTitle={planet?.name?.toLocaleUpperCase()}
-                  planetDescription={planet.description}
-                  distance={planet.distance}
-                  time={planet.travel}
-                  loading={loading}
-                />
-              </SwiperSlide>
-            );
-          })}
+          <ContainerSpinner>
+            <ClipLoader
+              size={200}
+              loading={isFetchPlanetStatusPending}
+              color={"#fff"}
+            />
+          </ContainerSpinner>
+
+          {isFetchPlanetStatusSuccess &&
+            infoPlanet?.map((planet: PlanetInfo) => {
+              const imageRoot = planet.images?.png?.slice(1);
+              return (
+                <SwiperSlide key={uuidv4()}>
+                  <PlanetSlider
+                    planetImage={imageRoot}
+                    planetTitle={planet?.name?.toLocaleUpperCase()}
+                    planetDescription={planet.description}
+                    distance={planet.distance}
+                    time={planet.travel}
+                    loading={isFetchPlanetStatusPending}
+                  />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </MainPagesComponents>
     </Layout>

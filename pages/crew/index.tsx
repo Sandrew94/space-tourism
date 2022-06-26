@@ -10,35 +10,30 @@ import "swiper/css/pagination";
 import CrewSlider from "@/components/CrewSlider";
 import Layout from "@/components/Layout";
 import { AuthContext } from "context/AuthContext";
-import { fetchServerlessPlanets } from "utils/fetchServerless";
 import { ContainerSpinner } from "@/components/PlanetsSlider/PlanetsSlider.style";
 import ClipLoader from "react-spinners/ClipLoader";
+import { usePlanets } from "hooks/usePlanets";
 
 type Props = {
   data: CrewType;
 };
 
 export default function CrewPage({}: Props) {
-  const [crewData, setCrewData] = React.useState<any>([{}]);
-  const [color, setColor] = React.useState("#ffffff");
-  const { user, loading, setLoading, error } = React.useContext(AuthContext);
+  const { tokenId } = React.useContext(AuthContext);
+
+  const {
+    infoPlanet,
+    initFetchPlanets,
+    isFetchPlanetStatusPending,
+    isFetchPlanetStatusError,
+    isFetchPlanetStatusSuccess,
+  } = usePlanets("crew", tokenId);
 
   React.useEffect(() => {
-    const dataFetching = async () => {
-      if (user) {
-        const token = await user.getIdToken();
+    if (!tokenId) return;
 
-        const data = await fetchServerlessPlanets("crew", token);
-
-        setColor("#70bb24");
-        setCrewData(data);
-        setLoading(false);
-      }
-    };
-
-    setLoading(true);
-    dataFetching();
-  }, [user]);
+    initFetchPlanets();
+  }, [tokenId]);
 
   return (
     <Layout titleMeta="Crew">
@@ -71,27 +66,35 @@ export default function CrewPage({}: Props) {
           }}
           className="mySwiper"
         >
-          {error && <p>{error}</p>}
-
-          {loading && (
-            <ContainerSpinner>
-              <ClipLoader size={200} loading={loading} color={color} />
-            </ContainerSpinner>
+          {isFetchPlanetStatusError && (
+            <p className="error">
+              There was a problem to load the page, try again later
+            </p>
           )}
-          {crewData.map((crew: CrewType) => {
-            const imageRoot = crew.images?.png?.slice(1);
-            return (
-              <SwiperSlide key={uuidv4()}>
-                <CrewSlider
-                  role={crew.role}
-                  name={crew.name}
-                  bio={crew.bio}
-                  image={imageRoot}
-                  loading={loading}
-                />
-              </SwiperSlide>
-            );
-          })}
+
+          <ContainerSpinner>
+            <ClipLoader
+              size={200}
+              loading={isFetchPlanetStatusPending}
+              color={"#fff"}
+            />
+          </ContainerSpinner>
+
+          {isFetchPlanetStatusSuccess &&
+            infoPlanet.map((crew: CrewType) => {
+              const imageRoot = crew.images?.png?.slice(1);
+              return (
+                <SwiperSlide key={uuidv4()}>
+                  <CrewSlider
+                    role={crew.role}
+                    name={crew.name}
+                    bio={crew.bio}
+                    image={imageRoot}
+                    loading={isFetchPlanetStatusPending}
+                  />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </MainPagesComponents>
     </Layout>

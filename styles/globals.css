@@ -54,3 +54,11 @@ h1 {
 img {
   transition: 1s;
 }
+
+.error {
+  position: absolute;
+  top: 0;
+  left: 00%;
+  font-size: 3rem;
+  color: #ffff;
+}

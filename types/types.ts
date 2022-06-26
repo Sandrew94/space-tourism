@@ -29,8 +29,4 @@ export type RocketType = {
   description: string;
 } & [];
 
-export type DataFetchType =
-  | RocketType
-  | CrewType
-  | PlanetInfo
-  | { message: string };
+export type DataFetchType = RocketType | CrewType | PlanetInfo;

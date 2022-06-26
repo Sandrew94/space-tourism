@@ -1,7 +1,7 @@
 import axios from "axios";
 import { DataFetchType } from "types/types";
 
-export async function fetchPlanetsInfo(query: string, accessToken?: string) {
+export async function fetchPlanetsInfo(query: string, accessToken: string) {
   const url = `https://discover-planets-to-visit-default-rtdb.europe-west1.firebasedatabase.app/${query}.json?auth=${accessToken}`;
 
   try {
@@ -15,6 +15,7 @@ export async function fetchPlanetsInfo(query: string, accessToken?: string) {
   } catch (err: unknown) {
     if (err instanceof Error) {
       return {
+        error: true,
         message: `Something went wrong: ${err.message}`,
       };
     }

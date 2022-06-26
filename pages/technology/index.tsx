@@ -12,19 +12,16 @@ import Layout from "@/components/Layout";
 import { useMediaQuery } from "react-responsive";
 import { useIsMounted } from "utils/isMounted";
 import { AuthContext } from "context/AuthContext";
-import { fetchServerlessPlanets } from "utils/fetchServerless";
 import { ContainerSpinner } from "@/components/PlanetsSlider/PlanetsSlider.style";
 import { ClipLoader } from "react-spinners";
+import { usePlanets } from "hooks/usePlanets";
 
 export default function Technology() {
   const isTabletAndMobile = useMediaQuery({ query: "(max-width: 63em)" });
   const isLaptop = useMediaQuery({ query: "(min-width: 64em)" });
-
   const [mobileView, setMobileView] = React.useState(false);
   const isMounted = useIsMounted();
-  const [technologyData, setTechnologyData] = React.useState<any>([{}]);
-  const [color, setColor] = React.useState("#ffffff");
-  const { user, loading, setLoading, error } = React.useContext(AuthContext);
+  const { tokenId } = React.useContext(AuthContext);
 
   React.useEffect(() => {
     if (isMounted()) {
@@ -32,22 +29,19 @@ export default function Technology() {
     }
   }, [isMounted, isTabletAndMobile]);
 
+  const {
+    infoPlanet,
+    initFetchPlanets,
+    isFetchPlanetStatusPending,
+    isFetchPlanetStatusError,
+    isFetchPlanetStatusSuccess,
+  } = usePlanets("technology", tokenId);
+
   React.useEffect(() => {
-    const dataFetching = async () => {
-      if (user) {
-        const token = await user.getIdToken();
+    if (!tokenId) return;
 
-        const data = await fetchServerlessPlanets("technology", token);
-
-        setColor("#70bb24");
-        setTechnologyData(data);
-        setLoading(false);
-      }
-    };
-
-    setLoading(true);
-    dataFetching();
-  }, [user]);
+    initFetchPlanets();
+  }, [tokenId]);
 
   return (
     <Layout titleMeta="Technology">
@@ -79,34 +73,42 @@ export default function Technology() {
           }}
           className="mySwiper"
         >
-          {error && <p>{error}</p>}
-
-          {loading && (
-            <ContainerSpinner>
-              <ClipLoader size={200} loading={loading} color={color} />
-            </ContainerSpinner>
+          {isFetchPlanetStatusError && (
+            <p className="error">
+              There was a problem to load the page, try again later
+            </p>
           )}
-          {technologyData.map((rocket: RocketType) => {
-            const portraitImage = rocket.images?.portrait?.slice(1);
-            const landscapeImage = rocket.images?.landscape?.slice(1);
-            const viewImage = {
-              width: mobileView ? "375px" : "515px",
-              height: mobileView ? "170px" : "527px",
-            };
-            return (
-              <SwiperSlide key={uuidv4()}>
-                <TechnologySlider
-                  view={viewImage}
-                  mobileView={mobileView}
-                  isLaptop={isLaptop}
-                  image={isTabletAndMobile ? landscapeImage : portraitImage}
-                  title={rocket.name?.toUpperCase()}
-                  description={rocket.description}
-                  loading={loading}
-                />
-              </SwiperSlide>
-            );
-          })}
+
+          <ContainerSpinner>
+            <ClipLoader
+              size={200}
+              loading={isFetchPlanetStatusPending}
+              color={"#fff"}
+            />
+          </ContainerSpinner>
+
+          {isFetchPlanetStatusSuccess &&
+            infoPlanet.map((rocket: RocketType) => {
+              const portraitImage = rocket.images?.portrait?.slice(1);
+              const landscapeImage = rocket.images?.landscape?.slice(1);
+              const viewImage = {
+                width: mobileView ? "375px" : "515px",
+                height: mobileView ? "170px" : "527px",
+              };
+              return (
+                <SwiperSlide key={uuidv4()}>
+                  <TechnologySlider
+                    view={viewImage}
+                    mobileView={mobileView}
+                    isLaptop={isLaptop}
+                    image={isTabletAndMobile ? landscapeImage : portraitImage}
+                    title={rocket.name?.toUpperCase()}
+                    description={rocket.description}
+                    loading={isFetchPlanetStatusPending}
+                  />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </MainPagesComponents>
     </Layout>

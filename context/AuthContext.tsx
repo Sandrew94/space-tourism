@@ -8,11 +8,13 @@ export const AuthContext = React.createContext<{
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   error: string;
+  tokenId: string;
 }>({
   user: null,
   loading: false,
   setLoading: () => {},
   error: "",
+  tokenId: "",
 });
 
 type Props = {
@@ -23,7 +25,7 @@ export const AuthContextProvider = ({ children }: Props) => {
   const [user, setUser] = React.useState<User | null>(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState("");
-
+  const [tokenId, setToken] = React.useState<any>();
   React.useEffect(() => {
     const fetchAsyncData = async () => {
       await signInAnonymously(auth)
@@ -50,6 +52,8 @@ export const AuthContextProvider = ({ children }: Props) => {
                 });
 
               setUser(user);
+              const tokenId = await user.getIdToken();
+              setToken(tokenId);
             } else {
               // User is signed out
               setUser(null);
@@ -70,7 +74,7 @@ export const AuthContextProvider = ({ children }: Props) => {
     fetchAsyncData();
   }, []);
 
-  const values = { user, setLoading, loading, error };
+  const values = { user, setLoading, loading, error, tokenId };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
